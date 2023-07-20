@@ -2,6 +2,9 @@ import subprocess
 import concurrent.futures
 import socket
 
+f = open("scanip.txt","w" )
+f.close
+
 
 ip_dep = input("Début de la plage à analyser : ")
 ip_fin = input("Fin de la plage à analyser : ")
@@ -20,8 +23,14 @@ def requete(ip):
         result = subprocess.run(["ping", ip], capture_output=True, text=True)
         if "TTL=" in result.stdout:
             hostname = get_hostname(ip)
+            with open("scanip.txt", "a") as f:
+                f.write(f"{ip} -> {hostname}\n")
+                f.close
             return f"{ip} -> {hostname}"
         else:
+            with open("scanip.txt", "a") as f: 
+                f.write(f"{ip} -> X\n")
+                f.close
             return f"{ip} -> X"
 
     except subprocess.CalledProcessError:
@@ -36,8 +45,6 @@ def multi_requete(liste):
             print(result)
 
 
-result_ip_dep = requete(ip_dep)
-print(result_ip_dep)
 
 result_ip_dep = requete(ip_dep)
 print(result_ip_dep)
