@@ -50,13 +50,13 @@ result_ip_dep = requete(ip_dep)
 print(result_ip_dep)
 
 ip = ip_dep
-ip_fin_parts = list(map(int, ip_fin.split('.')))  # Convertir l'adresse IP de fin en une liste d'entiers
+ip_fin_parts = list(map(int, ip_fin.split('.'))) 
 
 while ip != ip_fin:
     listeip = []
-    ip_parts = list(map(int, ip.split('.')))  # Convertir l'adresse IP en une liste d'entiers
+    ip_parts = list(map(int, ip.split('.')))
 
-    while ip_parts[2] <= ip_fin_parts[2] and ip != ip_fin:  # Vérifier si le 3e octet est inférieur ou égal à celui de l'adresse IP de fin
+    while ip_parts[2] <= ip_fin_parts[2] and ip != ip_fin: 
         for _ in range(255):
             if ip_parts[3] >= ip_fin_parts[3] or ip == ip_fin:
                 break
