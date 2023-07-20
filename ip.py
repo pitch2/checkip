@@ -2,14 +2,14 @@ import subprocess
 import concurrent.futures
 import socket
 
-'''
+
 ip_dep = input("Début de la plage à analyser : ")
 ip_fin = input("Fin de la plage à analyser : ")
-'''
 
+'''
 ip_dep = "192.168.1.1"
 ip_fin = "192.168.1.25"
-
+'''
 
 def get_hostname(ip_address):
     hostname = socket.gethostbyaddr(ip_address)
