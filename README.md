@@ -1,2 +1,2 @@
 # checkip
-nmap en python simplifié, rien à installer autre que python
+scan de reseaux en python simplifié, rien à installer autre que python
